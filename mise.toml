@@ -3,6 +3,7 @@ node    = "22"       # LTS
 python  = "3.12"
 go      = "1.25"
 java    = "temurin-21"  # default; override per project with .mise.toml
+pnpm    = "9"
 
 # Install extra Java versions (not active by default):
 #   mise install java@temurin-17
