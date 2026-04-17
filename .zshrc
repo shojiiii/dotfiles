@@ -54,6 +54,7 @@ export PATH="$PATH:/opt/homebrew/opt/mysql-client/bin"
 export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="cobalt2"
 plugins=(git zsh-syntax-highlighting zsh-autosuggestions zsh-completions)
+fpath+="${ZSH_CUSTOM:-$ZSH/custom}/plugins/zsh-completions/src"
 source "$ZSH/oh-my-zsh.sh"
 
 # =========================
@@ -66,9 +67,6 @@ SAVEHIST=100000
 # =========================
 # Completion
 # =========================
-autoload -Uz compinit
-compinit
-
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 zstyle ':completion:*:processes' command 'ps x -o pid,s,args'
 
@@ -98,7 +96,6 @@ setopt interactive_comments
 setopt auto_cd
 setopt auto_pushd
 setopt pushd_ignore_dups
-setopt share_history
 setopt extended_glob
 
 # =========================
@@ -106,19 +103,14 @@ setopt extended_glob
 # =========================
 alias ls='ls -FG'
 alias ll='ls -alFG'
-alias g='git'
 alias c='clear'
 alias k='kubectl'
 alias tf='terraform'
-alias rand='cat /dev/urandom | base64 | fold -w 16 | head -n 1'
+alias rand='base64 /dev/urandom | fold -w 16 | head -n 1'
 
 alias kgp='kubectl get pods'
 alias kgs='kubectl get svc'
 alias kctx='kubectl config use-context'
-
-alias gst='git status'
-alias gco='git checkout'
-alias gcb='git checkout -b'
 
 alias release='(){ git tag $1; git push origin $1; gh release create $1 --title $1 }'
 
@@ -144,8 +136,10 @@ bindkey '^r' peco-select-history
 # =========================
 function gcloud-activate() {
   local name="$1"
+  local project="$2"
   echo "gcloud config configurations activate \"${name}\""
   gcloud config configurations activate "${name}"
+  [ -n "$project" ] && echo "project: ${project}"
 }
 
 function gx-complete() {

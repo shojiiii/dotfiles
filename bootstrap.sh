@@ -14,7 +14,8 @@ echo "==> Brew packages"
 brew bundle --file="$DOTFILES/Brewfile"
 
 echo "==> mise: install runtimes"
-cp "$DOTFILES/mise.toml" ~/.config/mise/config.toml
+mkdir -p ~/.config/mise
+ln -sf "$DOTFILES/mise.toml" ~/.config/mise/config.toml
 mise install
 
 echo "==> Rust toolchain"
@@ -22,8 +23,8 @@ rustup-init -y --no-modify-path
 rustup default stable
 
 echo "==> .zshrc"
-[ -f ~/.zshrc ] && cp ~/.zshrc ~/.zshrc.bak.$(date +%Y%m%d)
-cp "$DOTFILES/.zshrc" ~/.zshrc
+[ -f ~/.zshrc ] && [ ! -L ~/.zshrc ] && cp ~/.zshrc ~/.zshrc.bak.$(date +%Y%m%d)
+ln -sf "$DOTFILES/.zshrc" ~/.zshrc
 
 echo "==> .zshrc.local (machine-specific, gitignored)"
 if [ ! -f ~/.zshrc.local ]; then
