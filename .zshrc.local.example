@@ -1,0 +1,12 @@
+# Copy this to ~/.zshrc.local and edit for each machine
+# This file is gitignored — safe for paths and secrets
+
+# GCP project IDs
+export MY_PROJECT_PROD=""
+export MY_PROJECT_STG=""
+export MY_OTHER_PROD=""
+export MY_OTHER_DEV=""
+
+# Project shortcuts (update paths for this machine)
+# alias proj1='cursor /path/to/project1/.'
+# alias proj2='cursor /path/to/project2/.'
