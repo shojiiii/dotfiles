@@ -8,7 +8,7 @@ protobuf      = "latest"   # protoc
 protoc-gen-go = "latest"
 
 # CLI tools (migrated from Homebrew)
-terraform = "1.8.5"
+terraform = "1.15.8"
 helm      = "4.1.4"
 helmfile  = "1.4.4"
 kubectl   = "1.35.4"
@@ -18,6 +18,13 @@ jq        = "1.8.1"
 yq        = "4.53.2"
 act       = "0.2.87"
 awscli    = "2.34.31"
+"npm:prettier" = "latest"
+buf = "latest"
+"npm:ccusage" = "latest"
+maven = "latest"
+terragrunt = "0.99.5"
+tflint = "latest"
+tfsec = "latest"
 
 # Install extra Java versions (not active by default):
 #   mise install java@temurin-17
