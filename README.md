@@ -41,5 +41,10 @@ echo '[tools]\njava = "temurin-17"' > .mise.toml
 | `Brewfile` | Homebrew パッケージ一覧 |
 | `mise.toml` | ランタイムバージョン定義 |
 | `bootstrap.sh` | セットアップスクリプト |
+| `.claude/` | Claude Code の共有設定・skills・hooks |
 
 `.zshrc.local` は gitignore 済み（プロジェクト固有の環境変数・パスを記載）。
+
+`.claude/` は allowlist 方式で管理しており、`.gitignore`、`settings.json`、`skills/`、`hooks/` のみを追跡する。セッション履歴・キャッシュ・認証情報などの実行時データは追跡しない。
+
+Claude Code の共有設定と `mise.toml` の変更は、macOS の LaunchAgent が検知して `main` へ自動 commit/push する。push 前に高確度の鍵・トークン・PEM 秘密鍵パターンを検査し、検出時は commit/push を中止する。新しい Mac では `./bootstrap.sh` がこの LaunchAgent を登録する。

@@ -1,0 +1,82 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:hub.docker.com)"
+    ],
+    "ask": [
+      "Bash(git push *)",
+      "Bash(terraform apply *)",
+      "Bash(kubectl apply *)",
+      "Bash(kubectl patch *)",
+      "Bash(kubectl scale *)",
+      "Bash(helm upgrade *)",
+      "Bash(helm install *)",
+      "Bash(docker push *)",
+      "Bash(npm publish *)"
+    ],
+    "deny": [
+      "Bash(rm *)"
+    ],
+    "disableBypassPermissionsMode": "disable"
+  },
+  "model": "sonnet",
+  "enabledPlugins": {
+    "slack@claude-plugins-official": true,
+    "gopls-lsp@claude-plugins-official": true,
+    "rust-analyzer-lsp@claude-plugins-official": true,
+    "aws-core@agent-toolkit-for-aws": true,
+    "grafana-core@grafana-skills": true
+  },
+  "extraKnownMarketplaces": {
+    "claude-plugins-official": {
+      "source": {
+        "source": "github",
+        "repo": "anthropics/claude-plugins-official"
+      }
+    },
+    "agent-toolkit-for-aws": {
+      "source": {
+        "source": "github",
+        "repo": "aws/agent-toolkit-for-aws"
+      }
+    },
+    "grafana-skills": {
+      "source": {
+        "source": "github",
+        "repo": "grafana/skills"
+      }
+    }
+  },
+  "tui": "fullscreen",
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash /Users/tshoji/.claude/hooks/block-destructive-command.sh"
+          },
+          {
+            "type": "command",
+            "command": "bash /Users/tshoji/.claude/hooks/block-prod-mutations.sh"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash /Users/tshoji/.claude/hooks/auto-push-config.sh",
+            "async": true
+          }
+        ]
+      }
+    ]
+  }
+}

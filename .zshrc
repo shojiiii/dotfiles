@@ -1,3 +1,10 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 # =========================
 # Locale
 # =========================
@@ -52,7 +59,7 @@ export PATH="$PATH:/opt/homebrew/opt/mysql-client/bin"
 # Oh My Zsh
 # =========================
 export ZSH="$HOME/.oh-my-zsh"
-ZSH_THEME="cobalt2"
+ZSH_THEME="powerlevel10k/powerlevel10k"
 plugins=(git zsh-syntax-highlighting zsh-autosuggestions zsh-completions)
 fpath+="${ZSH_CUSTOM:-$ZSH/custom}/plugins/zsh-completions/src"
 source "$ZSH/oh-my-zsh.sh"
@@ -101,6 +108,7 @@ setopt extended_glob
 # =========================
 # Aliases
 # =========================
+alias nv='nvim'
 alias ls='ls -FG'
 alias ll='ls -alFG'
 alias c='clear'
@@ -184,3 +192,7 @@ export PUPPETEER_EXECUTABLE_PATH="/opt/homebrew/bin/chromium"
 # (cursor aliases, GCP project IDs, secrets, etc.)
 # =========================
 [ -f "$HOME/.zshrc.local" ] && source "$HOME/.zshrc.local"
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+alias codex-api='CODEX_HOME=$HOME/.codex-api command codex'

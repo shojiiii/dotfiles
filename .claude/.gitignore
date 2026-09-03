@@ -1,0 +1,10 @@
+*
+
+!.gitignore
+!settings.json
+
+!skills/
+!skills/**
+
+!hooks/
+!hooks/**

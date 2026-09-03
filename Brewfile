@@ -24,6 +24,13 @@ brew "pipx"
 brew "rustup"
 
 # =========================
+# Editor
+# =========================
+brew "neovim"
+brew "ripgrep"
+brew "fd"
+
+# =========================
 # Core dev tools
 # =========================
 brew "git"
@@ -108,3 +115,4 @@ brew "ffmpeg"
 # Casks
 # =========================
 cask "font-hackgen"
+cask "font-meslo-lg-nerd-font"

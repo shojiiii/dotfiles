@@ -26,6 +26,21 @@ echo "==> .zshrc"
 [ -f ~/.zshrc ] && [ ! -L ~/.zshrc ] && cp ~/.zshrc ~/.zshrc.bak.$(date +%Y%m%d)
 ln -sf "$DOTFILES/.zshrc" ~/.zshrc
 
+echo "==> Claude Code settings"
+if [ -e ~/.claude ] && [ ! -L ~/.claude ]; then
+  echo "  ~/.claude already exists; migrate it before running bootstrap."
+else
+  ln -sfn "$DOTFILES/.claude" ~/.claude
+fi
+
+echo "==> Dotfiles auto-push watcher"
+LAUNCH_AGENT_DIR="$HOME/Library/LaunchAgents"
+LAUNCH_AGENT_PLIST="com.shojiiii.dotfiles-auto-push.plist"
+mkdir -p "$LAUNCH_AGENT_DIR"
+cp "$DOTFILES/launchd/$LAUNCH_AGENT_PLIST" "$LAUNCH_AGENT_DIR/$LAUNCH_AGENT_PLIST"
+launchctl bootout "gui/$(id -u)" "$LAUNCH_AGENT_DIR/$LAUNCH_AGENT_PLIST" 2>/dev/null || true
+launchctl bootstrap "gui/$(id -u)" "$LAUNCH_AGENT_DIR/$LAUNCH_AGENT_PLIST"
+
 echo "==> .zshrc.local (machine-specific, gitignored)"
 if [ ! -f ~/.zshrc.local ]; then
   cp "$DOTFILES/.zshrc.local.example" ~/.zshrc.local

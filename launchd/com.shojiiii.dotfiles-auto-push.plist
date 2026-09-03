@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>com.shojiiii.dotfiles-auto-push</string>
+  <key>ProgramArguments</key>
+  <array>
+    <string>/bin/bash</string>
+    <string>/Users/tshoji/dotfiles/scripts/auto-push-managed-config.sh</string>
+  </array>
+  <key>WatchPaths</key>
+  <array>
+    <string>/Users/tshoji/dotfiles/.claude/settings.json</string>
+    <string>/Users/tshoji/dotfiles/.claude/skills</string>
+    <string>/Users/tshoji/dotfiles/.claude/hooks</string>
+    <string>/Users/tshoji/dotfiles/mise.toml</string>
+  </array>
+  <key>StartInterval</key>
+  <integer>300</integer>
+  <key>StandardOutPath</key>
+  <string>/Users/tshoji/dotfiles/.auto-push.log</string>
+  <key>StandardErrorPath</key>
+  <string>/Users/tshoji/dotfiles/.auto-push.log</string>
+</dict>
+</plist>

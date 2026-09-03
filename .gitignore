@@ -1,1 +1,25 @@
-.zshrc.local
+# Keep this repository allowlisted: Claude and other tools may write runtime
+# state beneath these directories.
+*
+
+!/.gitignore
+!/.zshrc
+!/.zshrc.local.example
+!/Brewfile
+!/README.md
+!/bootstrap.sh
+!/mise.toml
+!/scripts/
+!/scripts/**
+!/launchd/
+!/launchd/**
+
+!/.claude/
+!/.claude/.gitignore
+!/.claude/settings.json
+
+!/.claude/skills/
+!/.claude/skills/**
+
+!/.claude/hooks/
+!/.claude/hooks/**
