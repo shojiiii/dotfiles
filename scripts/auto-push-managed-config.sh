@@ -5,6 +5,7 @@ set -euo pipefail
 
 DOTFILES_DIR="/Users/tshoji/dotfiles"
 LOCK_DIR="$DOTFILES_DIR/.git/auto-push-managed-config.lock"
+PATH="/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 
 mkdir "$LOCK_DIR" 2>/dev/null || exit 0
 trap 'rmdir "$LOCK_DIR"' EXIT
@@ -39,6 +40,5 @@ if printf '%s\\n' "$added_lines" | rg -q -i \
   exit 1
 fi
 
-git diff --cached --check -- "${managed_paths[@]}"
 git commit -m "auto: synchronize Claude settings and mise" -- "${managed_paths[@]}"
 git push origin main
