@@ -11,6 +11,7 @@
   </array>
   <key>WatchPaths</key>
   <array>
+    <string>/Users/tshoji/dotfiles/.claude/.gitignore</string>
     <string>/Users/tshoji/dotfiles/.claude/settings.json</string>
     <string>/Users/tshoji/dotfiles/.claude/skills</string>
     <string>/Users/tshoji/dotfiles/.claude/hooks</string>
