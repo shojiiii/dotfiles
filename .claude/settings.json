@@ -5,6 +5,9 @@
       "WebFetch(domain:github.com)",
       "WebFetch(domain:hub.docker.com)"
     ],
+    "deny": [
+      "Bash(rm *)"
+    ],
     "ask": [
       "Bash(git push *)",
       "Bash(terraform apply *)",
@@ -16,40 +19,9 @@
       "Bash(docker push *)",
       "Bash(npm publish *)"
     ],
-    "deny": [
-      "Bash(rm *)"
-    ],
     "disableBypassPermissionsMode": "disable"
   },
   "model": "sonnet",
-  "enabledPlugins": {
-    "slack@claude-plugins-official": true,
-    "gopls-lsp@claude-plugins-official": true,
-    "rust-analyzer-lsp@claude-plugins-official": true,
-    "aws-core@agent-toolkit-for-aws": true,
-    "grafana-core@grafana-skills": true
-  },
-  "extraKnownMarketplaces": {
-    "claude-plugins-official": {
-      "source": {
-        "source": "github",
-        "repo": "anthropics/claude-plugins-official"
-      }
-    },
-    "agent-toolkit-for-aws": {
-      "source": {
-        "source": "github",
-        "repo": "aws/agent-toolkit-for-aws"
-      }
-    },
-    "grafana-skills": {
-      "source": {
-        "source": "github",
-        "repo": "grafana/skills"
-      }
-    }
-  },
-  "tui": "fullscreen",
   "hooks": {
     "PreToolUse": [
       {
@@ -78,5 +50,33 @@
         ]
       }
     ]
-  }
+  },
+  "enabledPlugins": {
+    "slack@claude-plugins-official": true,
+    "gopls-lsp@claude-plugins-official": true,
+    "rust-analyzer-lsp@claude-plugins-official": true,
+    "aws-core@agent-toolkit-for-aws": true,
+    "grafana-core@grafana-skills": true
+  },
+  "extraKnownMarketplaces": {
+    "claude-plugins-official": {
+      "source": {
+        "source": "github",
+        "repo": "anthropics/claude-plugins-official"
+      }
+    },
+    "agent-toolkit-for-aws": {
+      "source": {
+        "source": "github",
+        "repo": "aws/agent-toolkit-for-aws"
+      }
+    },
+    "grafana-skills": {
+      "source": {
+        "source": "github",
+        "repo": "grafana/skills"
+      }
+    }
+  },
+  "tui": "fullscreen"
 }
