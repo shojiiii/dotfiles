@@ -82,5 +82,10 @@
       }
     }
   },
-  "tui": "fullscreen"
+  "tui": "fullscreen",
+  "modelSettings": {
+    "claude-sonnet-5": {
+      "effortLevel": "medium"
+    }
+  }
 }
