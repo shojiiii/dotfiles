@@ -21,7 +21,7 @@
     ],
     "disableBypassPermissionsMode": "disable"
   },
-  "model": "sonnet",
+  "model": "opus[1m]",
   "hooks": {
     "PreToolUse": [
       {
@@ -82,10 +82,10 @@
       }
     }
   },
-  "tui": "fullscreen",
   "modelSettings": {
     "claude-sonnet-5": {
       "effortLevel": "medium"
     }
-  }
+  },
+  "tui": "fullscreen"
 }
