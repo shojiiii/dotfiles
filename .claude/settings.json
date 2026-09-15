@@ -88,6 +88,9 @@
     },
     "claude-opus-5": {
       "effortLevel": "low"
+    },
+    "claude-fable-5-1": {
+      "effortLevel": "low"
     }
   },
   "tui": "fullscreen"
