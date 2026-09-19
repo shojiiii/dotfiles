@@ -93,5 +93,6 @@
       "effortLevel": "low"
     }
   },
-  "tui": "fullscreen"
+  "tui": "fullscreen",
+  "advisorModel": "fable"
 }
