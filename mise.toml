@@ -26,6 +26,7 @@ terragrunt = "0.99.5"
 tflint = "latest"
 tfsec = "latest"
 herdr = "latest"
+fzf = "latest"
 
 # Install extra Java versions (not active by default):
 #   mise install java@temurin-17
