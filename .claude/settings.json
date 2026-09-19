@@ -21,7 +21,7 @@
     ],
     "disableBypassPermissionsMode": "disable"
   },
-  "model": "claude-fable-5-1[1m]",
+  "model": "sonnet",
   "hooks": {
     "PreToolUse": [
       {
@@ -93,6 +93,6 @@
       "effortLevel": "low"
     }
   },
-  "tui": "fullscreen",
-  "advisorModel": "fable"
+  "advisorModel": "fable",
+  "tui": "fullscreen"
 }
