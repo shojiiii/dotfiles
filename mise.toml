@@ -28,6 +28,7 @@ tfsec = "latest"
 herdr = "latest"
 fzf = "latest"
 peco = "latest"
+hunk = "latest"
 
 # Install extra Java versions (not active by default):
 #   mise install java@temurin-17
