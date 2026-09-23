@@ -64,5 +64,12 @@
       "source": "anthropic",
       "updatedAt": "2026-09-14T21:00:33.324012Z"
     }
+  ],
+  "pendingClaims": [
+    "61440:Tue Sep 22 05:46:41 2026/docx",
+    "55613:Tue Sep 22 05:20:15 2026/docx",
+    "43888:Sun Sep 20 06:34:56 2026/docx",
+    "88681:Tue Sep 22 06:57:10 2026/docx",
+    "25406:Tue Sep 22 13:37:44 2026/docx"
   ]
 }
