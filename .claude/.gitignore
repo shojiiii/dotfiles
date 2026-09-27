@@ -8,3 +8,6 @@
 
 !hooks/
 !hooks/**
+
+# Claude Code skill-sync state marker (flips every sync cycle)
+.last-complete-round
