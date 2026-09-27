@@ -21,7 +21,7 @@
     ],
     "disableBypassPermissionsMode": "disable"
   },
-  "model": "claude-fable-5-1",
+  "model": "claude-opus-5",
   "hooks": {
     "PreToolUse": [
       {
