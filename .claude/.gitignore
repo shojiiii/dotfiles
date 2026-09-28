@@ -11,3 +11,6 @@
 
 # Claude Code skill-sync state marker (flips every sync cycle)
 .last-complete-round
+
+# Claude-managed synced skills (re-downloaded automatically)
+skills/synced/
